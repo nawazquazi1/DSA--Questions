@@ -31,4 +31,8 @@ public class Questions_42 {
         return rv;
     }
 
+    public static void main(String[] args) {
+        System.out.println(any_base_to_multiplication(5,1220,31));
+    }
+
 }

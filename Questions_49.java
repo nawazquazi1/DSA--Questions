@@ -5,13 +5,13 @@ public class Questions_49 {
     }
 
     public static void main(String[] args) {
-        balncedbracket("[(a+b)+{(c+d)*(e/f)}]");
-        balncedbracket("[(a+b)+{(c+d)*(e/f)]}");
-        balncedbracket("[(a+b)+{(c+d)*(e/f)}");
-        balncedbracket("[(a+b)+{(c+d)*(e/f)}])");
+        unbracketed("[(a+b)+{(c+d)*(e/f)}]");
+        unbracketed("[(a+b)+{(c+d)*(e/f)]}");
+        unbracketed("[(a+b)+{(c+d)*(e/f)}");
+        unbracketed("[(a+b)+{(c+d)*(e/f)}])");
     }
 
-    public static void balncedbracket(String exp) {
+    public static void unbracketed(String exp) {
         Stack<Character> st = new Stack();
 
         for(int i = 0; i < exp.length(); ++i) {
@@ -53,7 +53,7 @@ public class Questions_49 {
     public static boolean handel(Stack<Character> st, char corres) {
         if (st.size() == 0) {
             return false;
-        } else if ((Character)st.peek() != corres) {
+        } else if (st.peek() != corres) {
             return false;
         } else {
             st.pop();

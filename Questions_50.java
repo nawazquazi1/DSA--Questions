@@ -1,56 +1,53 @@
-import javax.xml.parsers.SAXParser;
 import java.util.Arrays;
 import java.util.Stack;
 
 public class Questions_50 {
+
     public static void main(String[] args) {
-        System.out.println(Arrays.toString(nextGreaterElement(new int[]{2, 5, 9, 3, 1, 12, 6, 8, 7})));
+        System.out.println(Arrays.toString(NextGretElement(new int[]{5, 3, 8, -2, 7})));
+        System.out.println(Arrays.toString(nextGreaterElement(new int[]{5, 3, 8, -2, 7})));
     }
 
+    public static int[] NextGretElement(int[] arr) {
 
-    public static int[] nextGreaterElement(int[] arr) {
-        int[] nge = new int[arr.length];
+        int[] ngh = new int[arr.length];
         Stack<Integer> stack = new Stack<>();
         stack.push(arr[arr.length - 1]);
-        nge[arr.length - 1] = -1;
-
+        ngh[arr.length - 1] = -1;
         for (int i = arr.length - 2; i >= 0; i--) {
-            while (stack.size() > 0 && arr[i] >=stack.peek()) {
+            while (stack.size() > 0 && arr[i] >= stack.peek()) {
                 stack.pop();
             }
-            if (stack.size() == 0) {
-                nge[i] = -1;
+            if (stack.size() > 0) {
+                ngh[i] = stack.peek();
             } else {
-                nge[i] = stack.peek();
+                ngh[i] = -1;
             }
             stack.push(arr[i]);
         }
-        return nge;
-
-
-
+        return ngh;
 
     }
 
-    public static int[] nextGreaterElementRight(int[] arr) {//[2, 5, 9, 3, 1, 12, 6, 8, 7}]
-        int[] nge = new int[arr.length];
+    //5, 3, 8, 2, 7
+    public static int[] nextGreaterElement(int[] arr) {
+        int[] ngh = new int[arr.length];
         Stack<Integer> stack = new Stack<>();
         stack.push(0);
         for (int i = 1; i < arr.length; i++) {
-            while (stack.size() > 0 && arr[i] > arr[stack.peek()]) {
-                int pop = stack.peek();//0
-                nge[pop] = arr[i];
+            while (stack.size() > 0 && arr[i] >= arr[stack.peek()]) {
+                int pos = stack.peek();
+                ngh[pos] = arr[i];
                 stack.pop();
             }
             stack.push(i);
         }
+
         while (stack.size() > 0) {
-            int pop = stack.pop();
-            nge[pop] = -1;
+            int pos = stack.peek();
+            ngh[pos] = -1;
             stack.pop();
         }
-        return nge;
+        return ngh;
     }
-
-
 }

@@ -1,5 +1,6 @@
 public class Questions_40 {
     public static void main(String[] args) {
+        System.out.println(any_base_to_Addition(8,777,1));
 
     }
         public static int any_base_to_Addition(int base, int number1, int number2) {

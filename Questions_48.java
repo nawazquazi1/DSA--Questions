@@ -17,11 +17,11 @@ public class Questions_48 {
             if (c != ')') {
                 stack.push(c);
             } else {
-                if ((Character)stack.peek() == '(') {
+                if (stack.peek() == '(') {
                     return true;
                 }
 
-                while((Character)stack.peek() != '(') {
+                while(stack.peek() != '(') {
                     stack.pop();
                 }
 
